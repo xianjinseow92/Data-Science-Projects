@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <title>
+            Consumer Complaints Classifier 
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="static/css/util.css">
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <!--===============================================================================================-->
+    </head>
+
+
+    <body>
+        <!-- Sets the background page color -->
+        <style>
+            body{
+                background-size: auto;
+                background-position: 95% 10%, 5% 10%;
+                /* background-position: right center, left center; */
+                background-size: 20%;
+                background-attachment: inherit;
+                background-repeat: no-repeat, no-repeat;
+                background-color: #E6E2E1;
+            }
+        </style>
+
+        <div class='classifier_container'>
+                <form action="/predict">
+                    <div style="text-align: center;">
+                            <br>
+                            <h1><font size="7" face="OpenSans-Regular">Consumer Complaints Classifier</font></h1>
+                            <br>
+                            <font size="4" face="OpenSans-Regular">Good-day Sir/Ma'm. This is your friendly neighborhood Complaint Classifier!
+                                <br>
+                                <br>How may I address your complaint today?</font>
+                            <br>
+                            <br>
+                            <center>
+                                <input type="text" name="chat_in" autofocus="autofocus" value="{{x_input}}" maxlength="500" id="rcorners2">
+                                <!-- The button creates a key: value pair -->
+                                <!-- Key = name = "chat_in" -->
+                                <!-- Value = x_input -->
+                                <!-- These two items will be retrieved using a request.args-->
+                                <!-- Just the Value (x_input) can be retrieved using a request.args.get('chat_in') -->
+                            </center>
+                        <br>
+                        <!-- Submit button -->
+                        <center>
+                                <input align="center" type="submit" value="Submit" method="get" id="rcorners1">
+                        </center>
+                        <br>
+                    </div>
+                </form> 
+        </div>
+
+        <div class='Category'>
+            <p>
+                <center>
+                        <h2>{{ cat_prediction  }}</h2>
+                </center>
+                <br>
+            </p>
+        </div>
+
+
+        <div class='classifer_table'>
+            <table>
+                <thead>
+                    <tr class="table100-head">
+                    <th class="column1">Your Complaint</th>
+                    <th colspan="2" class="column1">Classification Levels (Predictions)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="10" class="column1">{{ x_input }}</td>
+                        <!-- <td rowspan="6" class="column1">{{ chat_in }}</td> -->
+                        <td class="column1">{{prediction[0]['name']}}</td>
+                        <td class="column2">{{  prediction[0]['prob']  }} %</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">{{prediction[1]['name']}}</td>
+                        <td class="column2">{{  prediction[1]['prob']  }} %</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">{{prediction[2]['name']}}</td>
+                        <td class="column2">{{  prediction[2]['prob']  }} %</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">{{prediction[3]['name']}}</td>
+                        <td class="column2">{{  prediction[3]['prob']  }} %</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">{{prediction[4]['name']}}</td>
+                        <td class="column2">{{  prediction[4]['prob']  }} %</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">{{prediction[5]['name']}}</td>
+                        <td class="column2">{{  prediction[5]['prob']  }} %</td>
+                    <tr>
+                        <td class="column1">{{prediction[6]['name']}}</td>
+                        <td class="column2">{{  prediction[6]['prob']  }} %</td>
+                    <tr>
+                        <td class="column1">{{prediction[7]['name']}}</td>
+                        <td class="column2">{{  prediction[7]['prob']  }} %</td>
+                </tbody>
+            </table>
+        </div>
+
+        <br>
+        <!-- Creates a link to my profile -->
+        <div style="text-align: center; color: #808080;">
+            <font size="3" color="black" face = "OpenSans-Regular">
+            <b>Hit me up over at Linkedin:</b>
+            <a href="https://www.linkedin.com/in/seow-xian-jin/">Seow Xian Jin</a>
+            </font>
+        <br>
+        <br>
+            
+        </div>
+    </body>
+</html>
