@@ -30,6 +30,8 @@
             }
         </style>
 
+
+
         <div class='classifier_container'>
                 <form action="/predict">
                     <div style="text-align: center;">
@@ -59,6 +61,7 @@
                 </form> 
         </div>
 
+        
         <div class='Category'>
             <p>
                 <center>
@@ -109,6 +112,12 @@
                     <tr>
                         <td class="column1">{{prediction[7]['name']}}</td>
                         <td class="column2">{{  prediction[7]['prob']  }} %</td>
+                    <tr>
+                        <td class="column1">{{prediction[8]['name']}}</td>
+                        <td class="column2">{{  prediction[8]['prob']  }} %</td>
+                    <tr>
+                        <td class="column1">{{prediction[9]['name']}}</td>
+                        <td class="column2">{{  prediction[9]['prob']  }} %</td>
                 </tbody>
             </table>
         </div>
@@ -117,8 +126,9 @@
         <!-- Creates a link to my profile -->
         <div style="text-align: center; color: #808080;">
             <font size="3" color="black" face = "OpenSans-Regular">
-            <b>Hit me up over at Linkedin:</b>
-            <a href="https://www.linkedin.com/in/seow-xian-jin/">Seow Xian Jin</a>
+            <b>Hit me up over at Linkedin</b>
+            <br>
+            <a href="https://www.linkedin.com/in/seow-xian-jin/">https://www.linkedin.com/in/seow-xian-jin/</a>
             </font>
         <br>
         <br>

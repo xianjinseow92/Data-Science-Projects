@@ -33,6 +33,7 @@ def predict():
         # and then it will take the associated value of "chat_in"
         x_input, category_prediction, list_of_pred_probs_dict = \
             make_classification(request.args.get('chat_in')) # if key doesn't exist, returns None
+
         return render_template('predictor.html', x_input=x_input, 
                                                 cat_prediction = category_prediction, 
                                                 prediction = list_of_pred_probs_dict)
@@ -47,7 +48,10 @@ def predict():
         for dictionary in list_of_pred_probs_dict:
             for key, val in dictionary.items():
                 dictionary[key] = '--'
-        return render_template('predictor.html', x_input=x_input, cat_prediction=category_prediction, prediction = list_of_pred_probs_dict)
+
+        return render_template('predictor.html', x_input=x_input, 
+                                                 cat_prediction=category_prediction, 
+                                                 prediction = list_of_pred_probs_dict)
 
 
 # Start the server, continuously listen to requests
